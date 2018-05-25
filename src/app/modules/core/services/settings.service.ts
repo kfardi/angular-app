@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 // Services
 import { Logger } from './../services/logger.service';
 import { HttpResponseService } from './../services/http-response.service';
+import { environment } from '../../../../environments/environment';
 
 /**
  * App config interface
@@ -11,8 +12,8 @@ import { HttpResponseService } from './../services/http-response.service';
  * @interface IConfig
  */
 interface IConfig {
-    version: string,
-    apiUrl: string
+    version: string;
+    apiUrl: string;
 }
 
 /**
@@ -50,7 +51,7 @@ export class SettingsService {
         headers.set('Pragma', 'no-cache');
         return new Promise(resolve => {
             this.http
-                .get(`res/_settings.json`, { headers: headers })
+                .get(`res/_settings.${environment.name}.json`, { headers: headers })
                 .subscribe(
                     (config: IConfig) => {
                         this.config = config;
