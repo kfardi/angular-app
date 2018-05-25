@@ -28,7 +28,7 @@ export class ResourcesService {
         private logger: Logger,
         private constants: Constants,
         private httpRespService: HttpResponseService) {
-    };
+    }
 
     /**
      * Load application resources
@@ -37,6 +37,7 @@ export class ResourcesService {
      * @memberof ResourcesService
      */
     load() {
+        // tslint:disable-next-line:prefer-const
         let headers = new HttpHeaders();
         headers.append('Cache-Control', 'no-cache');
         headers.append('Pragma', 'no-cache');

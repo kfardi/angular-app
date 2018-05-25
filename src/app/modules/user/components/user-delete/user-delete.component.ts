@@ -10,8 +10,10 @@ import { NotificationsService } from 'angular2-notifications';
 })
 export class UserDeleteComponent implements OnInit {
 
+  // tslint:disable-next-line:no-input-rename
   @Input('data') user: User;
   @Input() display: boolean;
+  // tslint:disable-next-line:no-output-on-prefix
   @Output() onAction = new EventEmitter<boolean>();
 
   constructor(
